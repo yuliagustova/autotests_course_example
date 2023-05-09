@@ -2,10 +2,7 @@
 
 
 def even_sum(lst):
-    sum_list = 0
-    for k in range(len(lst)):
-        if k % 2 == 0:
-            sum_list += lst[k]
+    sum_list = sum(lst[::2])
     return sum_list
 
 
