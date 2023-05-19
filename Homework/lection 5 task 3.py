@@ -28,10 +28,11 @@ def everything_for_your_cat(cats_data):
     our_str = ''
     cats_dict = {}
     for cat in cats_data:
-        if f'{cat[2]} {cat[3]}' not in cats_dict:
-            cats_dict[f'{cat[2]} {cat[3]}'] = f'{cat[0]}, {cat[1]}'
+        cat, owner = f'{cat[0]}, {cat[1]}', f'{cat[2]} {cat[3]}'
+        if owner not in cats_dict:
+            cats_dict.update({owner: cat})
         else:
-            cats_dict[f'{cat[2]} {cat[3]}'] = cats_dict.get(f'{cat[2]} {cat[3]}') + f'; {cat[0]}, {cat[1]}'
+            cats_dict[owner] += f'; {cat}'
     for key, value in cats_dict.items():
         our_str += f'{key}: {value}\n'
     return our_str

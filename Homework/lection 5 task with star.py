@@ -21,8 +21,9 @@ def to_roman(val):
                   300: 'CCC', 400: 'CD', 500: 'D', 600: 'DC', 700: 'DCC', 800: 'DCCC', 900: 'CM', 1000: 'M',
                   2000: 'MM', 3000: 'MMM', 4000: 'MV', 5000: 'V', 6000: 'VM', 7000: 'VMM', 8000: 'VMMM', 9000: 'MX'}
     roman_str = ''
-    val_len = int(len(str(val)))
-    for digit in (str(val)):
+    val = str(val)
+    val_len = (len(val))
+    for digit in val:
         if digit == '0':
             val_len -= 1
             continue
