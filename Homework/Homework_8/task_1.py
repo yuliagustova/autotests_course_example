@@ -26,16 +26,14 @@ def treatment_sum(elem):
     :return: сумму элементов кортежа, если элементов 2 и они являются числами
     """
     try:
-        if len(elem) == 2:
-            summ = elem[0] + elem[1]
-            return summ
-        elif len(elem) > 2:
-            raise Exception('Много данных')
-        elif len(elem) < 2:
-            return 'Недостаточно данных'
-
+        summ = elem[0] + elem[1]
+    except IndexError:
+        return 'Недостаточно данных'
     except TypeError:
         return 'Нельзя сложить эти данные'
+    if len(elem) > 2:
+        raise Exception('Много данных')
+    return summ
 
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ

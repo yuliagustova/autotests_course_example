@@ -21,9 +21,9 @@ def segment(point_1, point_2):
     x2, y2 = point_2
     try:
         summ_points = x1 + y1 + x2 + y2
-        return summ_points
     except Exception as error:
-        return str(error)[::-1]
+        return error.args[0][::-1]
+    return summ_points
 
 
 

@@ -18,17 +18,17 @@ import unittest  # Не удалять
 
 class Trigon:
     def __init__(self, *sides):
-        for side in sides:
-            if type(side) != int:
-                raise TypeError('Стороны должны быть числами')
-        for side in sides:
-            if side <= 0:
-                raise ValueError('Стороны должны быть положительными')
         if len(sides) != 3:
             raise IndexError(f'Передано {len(sides)} аргументов, а ожидается 3')
-        elif sides[0] + sides[1] <= sides[2] or sides[0] + sides[2] <= sides[1] or sides[2] + sides[1] <= sides[0]:
-            raise Exception('Не треугольник')
         self.sides = sides
+        for side in self.sides:
+            if type(side) != int:
+                raise TypeError('Стороны должны быть числами')
+            if side <= 0:
+                raise ValueError('Стороны должны быть положительными')
+        if self.sides[0] + self.sides[1] <= self.sides[2] or self.sides[0] + self.sides[2] <= self.sides[1] or \
+                self.sides[2] + self.sides[1] <= self.sides[0]:
+            raise Exception('Не треугольник')
 
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
