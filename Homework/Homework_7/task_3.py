@@ -52,10 +52,8 @@ class Bus(PublicTransport):
 
     @park.setter
     def park(self, park):
-        if 1000 <= park <= 9999:
-            self.__park = park
-        else:
-            raise AssertionError
+        assert park in range(1000, 10000)
+        self.__park = park
 
 
 class Tram(PublicTransport):
