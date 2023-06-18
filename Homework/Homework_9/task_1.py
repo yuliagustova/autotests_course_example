@@ -3,11 +3,14 @@
 # Необходимо удалить все цифры и записать получившийся текст в файл test_file/task1_answer.txt
 
 with open('test_file/task1_data.txt', mode='r', encoding='utf-8') as f:
-    with open('test_file/task1_answer.txt', mode='w', encoding='utf-8') as f1:
-        for line in f.readlines():
-            for letter in line:
-                if not letter.isdigit():
-                    f1.write(letter)
+    my_string = ''
+    for line in f.readlines():
+        for letter in line:
+            if not letter.isdigit():
+                my_string += letter
+        with open('test_file/task1_answer.txt', mode='w', encoding='utf-8') as f1:
+            f1.write(my_string)
+
 
 # Ниже НИЧЕГО НЕ НАДО ИЗМЕНЯТЬ
 
